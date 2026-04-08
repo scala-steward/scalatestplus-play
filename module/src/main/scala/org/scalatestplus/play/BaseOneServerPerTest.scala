@@ -76,10 +76,10 @@ import org.scalatest.*
  */
 trait BaseOneServerPerTest extends TestSuiteMixin with ServerProvider { this: TestSuite & FakeApplicationFactory =>
 
-  @volatile private var privateApp: Application      = _
-  @volatile private var privateServer: RunningServer = _
+  @volatile private var privateApp: Application      = null
+  @volatile private var privateServer: RunningServer = null
 
-  private[this] val lock = new Object()
+  private val lock = new Object()
 
   /**
    * Implicit method that returns the `Application` instance for the current test.

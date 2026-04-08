@@ -69,7 +69,7 @@ trait BaseOneAppPerTest extends TestSuiteMixin with AppProvider { this: TestSuit
    */
   def newAppForTest(testData: TestData): Application = fakeApplication()
 
-  private var appPerTest: Application = _
+  private var appPerTest: Application = null
 
   /**
    * Implicit method that returns the `Application` instance for the current test.

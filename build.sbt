@@ -45,13 +45,15 @@ val previousVersion: Option[String] = Some("7.0.0")
 
 lazy val mimaSettings = Seq(
   mimaBinaryIssueFilters ++= Seq(
+    ProblemFilters.exclude[DirectMissingMethodProblem]("org.scalatestplus.play.ChromeFactory.<clinit>"),
+    ProblemFilters.exclude[DirectMissingMethodProblem]("org.scalatestplus.play.FirefoxFactory.<clinit>"),
   ),
   mimaPreviousArtifacts := previousVersion.map(organization.value %% name.value % _).toSet
 )
 
 lazy val commonSettings = Seq(
-  scalaVersion             := "2.13.17",
-  crossScalaVersions       := Seq("2.13.17", "3.3.7"),
+  scalaVersion             := "2.13.18",
+  crossScalaVersions       := Seq("2.13.18", "3.8.3"),
   Test / parallelExecution := false,
   Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-oTK"),
   headerLicense := Some(

@@ -76,7 +76,7 @@ import play.core.server.ServerEndpoints
  */
 trait ConfiguredServer extends TestSuiteMixin with ServerProvider { this: TestSuite =>
 
-  private var configuredApp: Application = _
+  private var configuredApp: Application = null
 
   /**
    * The "configured" `Application` instance that was passed into `run` via the `ConfigMap`.
