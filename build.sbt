@@ -45,6 +45,8 @@ val previousVersion: Option[String] = Some("7.0.0")
 
 lazy val mimaSettings = Seq(
   mimaBinaryIssueFilters ++= Seq(
+    ProblemFilters.exclude[DirectMissingMethodProblem]("org.scalatestplus.play.ChromeFactory.<clinit>"),
+    ProblemFilters.exclude[DirectMissingMethodProblem]("org.scalatestplus.play.FirefoxFactory.<clinit>"),
   ),
   mimaPreviousArtifacts := previousVersion.map(organization.value %% name.value % _).toSet
 )
